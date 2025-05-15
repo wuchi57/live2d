@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live2D PixiJS Demo</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+    html {
+      width: 200px;
+      height: 610px;
+      backgroundColor: transparent;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <!-- Live2D Core & Libraries -->
+  <!-- <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.2/dist/browser/pixi.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script> -->
+
+  <script src="https://cdn.jsdelivr.net/gh/wuchi57/live2d/core/live2dcubismcore.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/wuchi57/live2d/core/live2d.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/wuchi57/live2d/core/pixi.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/wuchi57/live2d/core/index.min.js"></script>
+
+  <script>
+  // const cubism2Model = "https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json";
+  // const cubism2Model = "./models/sagiri/sagiri.model.json";
+  // const cubism4Model = "https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/haru/haru_greeter_t03.model3.json";
+  // const cubism4Model = "./models/Hiyori/Hiyori.model3.json";
+  // const cubism4Model = "https://cdn.jsdelivr.net/gh/wuchi57/live2d/models/kuma2020/kuma2020.model3.json";
+  const cubism4Model = "https://cdn.jsdelivr.net/gh/wuchi57/live2d/models/Hiyori/Hiyori.model3.json";
+
+    (async function main() {
+      const app = new PIXI.Application({
+        view: document.getElementById("canvas"),
+        autoStart: true,
+        resizeTo: window,
+        transparent: true,
+        // backgroundColor: 'rbga(0, 0, 0, 0)'
+  });
+
+      // 加载 Cubism 2 模型
+      // const model2 = await PIXI.live2d.Live2DModel.from(cubism2Model);
+      // model2.scale.set(0.2);
+      // model2.position.set(0, 0);
+      // app.stage.addChild(model2);
+
+      // 加载 Cubism 4 模型
+      const model4 = await PIXI.live2d.Live2DModel.from(cubism4Model);
+      model4.scale.set(0.16);
+      model4.position.set(-140, -45);
+      app.stage.addChild(model4);
+    })();
+  </script>
+</body>
+</html>
